@@ -6,13 +6,13 @@ import time
 import matplotlib.pyplot
 
 
-#hyperparameters
+#%% hyperparameters
 prob_crsvr      = 1
 prob_mute       = 0.3
 N               = 200    #population size
 generations     = 180
 
-#decision variables encoding
+#%%decision variables encoding
 chromosome = np.array([1,0,0,1,1,0,0,1,1,0,0,1,0,0,
                        0,1,1,0,1,0,1,0,1,1,0,0,1,1]) #x_y string
     
@@ -21,7 +21,7 @@ all_solutions       = np.empty((0, len(chromosome)))
 
 best_of_generation  = np.empty((0,len(chromosome)+1))
 
-#initial pop 
+#%% initial pop 
 for i in range(N):
     rd.shuffle(chromosome) #shuffle
     all_solutions   =   np.vstack((all_solutions, chromosome))
@@ -74,6 +74,8 @@ sorted_best_of_gen  = np.array((sorted(best_of_generation, key=lambda x:x[0])))
 #the best
 best_str_convergence = sorted_last_pop[0]
 best_str_overall     = sorted_best_of_gen[0]
+
+#%% Printing my solutions
 
 print("Final Solution (best)", best_str_overall[1:])
 print("Best value", best_str_overall[0])

@@ -4,12 +4,12 @@ import numpy as np
 import random as rd
 import copy
 
-#objective function (Himmelblau)
+#objective function (Himmelblau) for testing
 def fun(x,y):
     z= ((x**2)+y-11)**2+(x+(y**2)-7)**2
     return(z)
 
-#%%
+#%% testing bits
     """
     #TEST
 chromosome_test     =   np.array([1,1,0,1,      #y variable
@@ -45,8 +45,7 @@ for i in range(int(len(chromosome_test)/2)):
     z   += 1
     print("\n sum(bit*(2**z)) is", y_bit_sum)
 """
-#%%
- #Calculation of the objective value function
+#%% Calculation of the objective value function
 
 def ov_fun(chromosome):
     
@@ -82,7 +81,7 @@ def ov_fun(chromosome):
     ofv= fun(decoded_x, decoded_y)
     return(decoded_x, decoded_y, ofv)
     
-#%%
+#%% decode testing
 
     
 """    
@@ -105,9 +104,7 @@ print("\n decoded x:", round((ov_fun(parent_1)[0]),3) ,
 print("\n objective function value", round(ov_fun(parent_1)[2],3))
 """
 
-#%%
-
-#get the parents #########################################################
+#%% get the parents
 def find_parents(all_solutions):
     
     boomers   = np.empty((0, np.size(all_solutions,1)))
@@ -143,9 +140,7 @@ print("parent 1", parents[1])
 
 
 
-#%%
-
-#crossover of two parents
+#%% crossover of two parents
 
 def crossover(parent_1, parent_2,prob_crsvr=1):
     child_1     = np.empty((0,(len(parent_1))))
@@ -204,7 +199,7 @@ def crossover(parent_1, parent_2,prob_crsvr=1):
         #print("no crossover")
             
     return(child_1, child_2)
-#%%
+#%% testing crossover
 """
 #test crossover
 tp=[1,2,3,4,5]
@@ -214,8 +209,7 @@ children = crossover(tp, tp2)
 print("\n child 1", children[0], "\n child 2", children[1])
 
 """
-#%%
-#mutations
+#%% mutations
 #flip bit mutation
 
 #mutating the two childrens
