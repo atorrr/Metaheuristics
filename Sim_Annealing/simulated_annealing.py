@@ -10,13 +10,8 @@ def Himmb(x,y):
     return(z)
     
 #initial solution
-x = 0.
-y = 0.
-z = Himmb(x,y)
-
-
-    
-
+x, y = 0., 0.
+z    = Himmb(x,y)
 
 #hyperparameters
 T0      =    1000
@@ -25,7 +20,7 @@ M       =     500         #steps to decrease T
 N       =     15          #times of search in the neighborhood
 alpha   =     0.85        #decreasing of the T
 k       =     0.1         #reducing step size
-temp_for_plot = T0     #for plotting purposes
+temp_for_plot = T0        #for plotting purposes
 
  
 
@@ -89,7 +84,7 @@ def SimAnn(x,y,fun,T0=1000, M=500,N=15,alpha=0.85,k=0.1):
         
     #showing my results
     
-    print("\n Objective function:", fun.__name__, "\n \n Final values \n x =", x, "\n y=", y, "\n objective value =", obj_v_current)
+    print("\n Objective function:", fun.__name__,  "\n \n Final values \n x =", x, "\n y=", y, "\n objective value =", obj_v_current)
     
     plt.plot(temp, obj_val)   
     plt.title("Z value for the objective function") 
@@ -100,11 +95,11 @@ def SimAnn(x,y,fun,T0=1000, M=500,N=15,alpha=0.85,k=0.1):
     plt.xticks(np.arange(min(temp),max(temp),100))
     
     plt.show()
-    
+    z=obj_v_current
     return(x,y,z)
 #%% Testing
-    """
+    
     proof= SimAnn(x,y,Himmb)
     print(proof)
-    """
+    
     

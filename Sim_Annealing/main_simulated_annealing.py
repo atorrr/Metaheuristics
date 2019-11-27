@@ -1,8 +1,5 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import simulated_annealing as sima
 import TestFunctions as tf
-from mpl_toolkits import mplot3d
 
 #%% Plotting my test functions
 """
@@ -30,7 +27,8 @@ sima.SimAnn(x,y,tf.GoldP)
 #%% My results
 
 def CompleteSimAnn(x,y,fun):
-    SA=sima.SimAnn(x,y,fun)
+    SA=sima.SimAnn(x,y,fun,2000,600)
     tf.PlotFun(fun,SA[0],SA[1],SA[2])
     print(SA)
-CompleteSimAnn(0,0,tf.McCor)
+    
+CompleteSimAnn(0,0,tf.Beale)
