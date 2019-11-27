@@ -151,7 +151,7 @@ def crossover(parent_1, parent_2,prob_crsvr=1):
     child_1     = np.empty((0,(len(parent_1))))
     child_2     = np.empty((0,len(parent_2)))
     
-    rand_crsvr  = np.random.rand()      #crossover or not
+    rand_crsvr  = np.random.rand()      #crossover or not?
     
     if rand_crsvr < prob_crsvr:
             index_1 = np.random.randint(0, len(parent_1))
