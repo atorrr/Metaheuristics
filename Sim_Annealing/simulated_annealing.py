@@ -100,7 +100,8 @@ def SimAnn(x,y,fun,T0=1000, M=500,N=15,alpha=0.85,k=0.1):
     plt.xticks(np.arange(min(temp),max(temp),100))
     
     plt.show()
-
+    
+    return(x,y,z)
 #%% Testing
     """
     proof= SimAnn(x,y,Himmb)

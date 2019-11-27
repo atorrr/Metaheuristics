@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
 
 #%% Test functions
 
@@ -25,41 +27,22 @@ def Beale(x,y):
 
 
 #%% Plotting test functions
-
-def sph_p(x):
-    n=len(x)
-    y=zeros(n)
-    c=.0
-    for i in range(n):
-        y[i]=x[i]**2
-        yn=c+y[i]
-        c=yn
-    return(yn)
-
-def McCor_p(x,y): #-1.5 < x < 4, -3 < y < 4
-    n=len(x)
-    z=zeros(n)
-    for i in range(n):
-        z[i]=np.sin(x[i]+y[i])+(x[i]-y[i])**(2)
-        -1.5*x[i]+2.5*y[i]+1
-    return(z)
-
-def GoldP_p(x,y):
-    n=len(x)
-    z=zeros(n)
-    for i in range(n):
-        z[i]= (1+(x[i]+y[i]+1)**(2)*
-               (19-14*x[i]+3*x[i]**2-14*y[i]+6*x[i]*y[i]+3*y[i]**2))*(
-        30+(2*x[i]-3*y[i])**2 * (18-32*x[i]+12*x[i]**2+48*y[i]-
-                                36*x[i]*y[i]+27*y[i]**2))
-    return(z)
-
-def Beale_p(x,y):
-    n=len(x)
-    z=zeros(n)
-    for i in range(n):
-        z[i]=(1.5-x[i]+x[i]*y[i])**2+(2.25-x[i]
-                                     +x[i]*y[i]**2)**2
-        +(2.625-x[i]+x[i]*y[i]**3)
+def PlotFun(f,fx=0,fy=0,fz=-1):
+    print("Function", f.__name__)
+    x, y    = np.linspace(-10, 10, 30), np.linspace(-10, 10, 30)
+    X, Y    = np.meshgrid(x, y)
+    Z       = f(X, Y)
+    figi    = plt.figure()
+    ax = plt.axes(projection='3d')
+    ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap='rainbow', edgecolor='none')
+    solution_found = ax.plot([fx], [fy], [fz],markerfacecolor='y', markeredgecolor='g', marker='o', markersize=5, alpha=1.0)
+    ax.legend(solution_found, "solution found", numpoints=1, loc='upper left')
+    ax.set_title(f.__name__)
+    ax.set_ylabel('y')
+    ax.set_zlabel('z')
+    ax.view_init(60, 35)
+    #plot results
     
+    
+
 
