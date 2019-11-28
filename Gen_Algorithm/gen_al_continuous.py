@@ -76,8 +76,25 @@ best_str_convergence = sorted_last_pop[0]
 best_str_overall     = sorted_best_of_gen[0]
 
 #%% Printing my solutions
+print("Convergence")
+print("\n Final Solution (best)", best_str_convergence[1:])
+print("\n Best value", best_str_convergence[0])
+print("\n Encoded X (best)", best_str_convergence[1:int(len(chromosome)/2)])
+print("\n Encoded Y (best)", best_str_convergence[int(len(chromosome)/2):])
 
+print("Overall")
 print("Final Solution (best)", best_str_overall[1:])
 print("Best value", best_str_overall[0])
 print("\n Encoded X (best)", best_str_overall[1:int(len(chromosome)/2)])
-print("\n Encoded X (best)", best_str_overall[int(len(chromosome)/2):])
+print("\n Encoded Y (best)", best_str_overall[int(len(chromosome)/2):])
+
+#time details
+
+print("\n Execution time:", round(end_time - start_time,2), " seconds")
+
+final_sol_convergence   = genf.ov_fun(best_str_convergence[1:])
+final_sol_overall       = genf.ov_fun(best_str_overall[1:])
+
+print("Final solution convergence",final_sol_convergence)
+print("Final solution overall",final_sol_overall)
+
