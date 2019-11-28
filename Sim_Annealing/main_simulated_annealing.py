@@ -27,8 +27,15 @@ sima.SimAnn(x,y,tf.GoldP)
 #%% My results
 
 def CompleteSimAnn(x,y,fun):
-    SA=sima.SimAnn(x,y,fun,2000,600)
+    SA=sima.SimAnn(x,y,fun)
     tf.PlotFun(fun,SA[0],SA[1],SA[2])
     print(SA)
     
+CompleteSimAnn(0,0,tf.McCor)
+"""
+CompleteSimAnn(0,0,tf.Himmb)
+CompleteSimAnn(0,0,tf.sph)
+
 CompleteSimAnn(0,0,tf.Beale)
+CompleteSimAnn(0,0,tf.GoldP)
+"""
