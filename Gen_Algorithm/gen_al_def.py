@@ -47,7 +47,7 @@ for i in range(int(len(chromosome_test)/2)):
 """
 #%% Calculation of the objective value function
 
-def ov_fun(chromosome):
+def ov_fun(chromosome,fun=fun):
     
     lb_x, ub_x  =   -6, 6 #lower and upper bounds for x
     lb_y, ub_y  =   -6, 6 #lower and upper bounds for y
@@ -105,7 +105,7 @@ print("\n objective function value", round(ov_fun(parent_1)[2],3))
 """
 
 #%% get the parents
-def find_parents(all_solutions):
+def find_parents(all_solutions,fun=fun):
     
     boomers   = np.empty((0, np.size(all_solutions,1)))
     #selecting 3 random possible parents
@@ -115,7 +115,7 @@ def find_parents(all_solutions):
                                              3,replace=False)
         poss_par_1, poss_par_2, poss_par_3 = all_solutions[indices_list[0]], all_solutions[indices_list[1]], all_solutions[indices_list[2]]
         #evaluating the boomers for parenthood
-        ofv_par_1, ofv_par_2, ofv_par_3 = ov_fun(poss_par_1)[2], ov_fun(poss_par_2)[2], ov_fun(poss_par_3)[2]
+        ofv_par_1, ofv_par_2, ofv_par_3 = ov_fun(poss_par_1,fun)[2], ov_fun(poss_par_2,fun)[2], ov_fun(poss_par_3,fun)[2]
         # let's tournament begin!
         min_obj_fun = min(ofv_par_1, ofv_par_2, ofv_par_3)
         if min_obj_fun == ofv_par_1:
