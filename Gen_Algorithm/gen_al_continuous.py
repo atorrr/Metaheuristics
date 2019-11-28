@@ -23,7 +23,7 @@ all_solutions       = np.empty((0, len(chromosome)))
 best_of_generation  = np.empty((0,len(chromosome)+1))
 
 #function to optimize
-fun=tf.Beale
+fun=tf.Schaffer2
 
 #%% initial pop 
 for i in range(N):

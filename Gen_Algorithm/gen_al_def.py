@@ -1,8 +1,6 @@
 # Genetic Algorithm optimization for a continuous problem
 
 import numpy as np
-import random as rd
-import copy
 
 #objective function (Himmelblau) for testing
 def fun(x,y):
