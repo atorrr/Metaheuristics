@@ -1,13 +1,15 @@
 import numpy as np
 import copy
 import random as rd
-import gen_al_def as genf
-import time
 import matplotlib.pyplot as plt
+import time
+
+import gen_al_def as genf
 import TestFunctions as tf
 
 
 #%% hyperparameters
+
 prob_crsvr      = 1
 prob_mute       = 0.3
 N               = 200    #population size
@@ -23,7 +25,7 @@ all_solutions       = np.empty((0, len(chromosome)))
 best_of_generation  = np.empty((0,len(chromosome)+1))
 
 #function to optimize
-fun=tf.Schaffer2
+fun=tf.Himmb
 
 #%% initial pop 
 for i in range(N):
@@ -32,6 +34,12 @@ for i in range(N):
 
 start_time  =   time.time()
 gen         =    1
+
+#%% main gen al
+
+initial=genf.decode(chromosome)
+print("\n initial x:", round(initial[0],3), "\n initial y:", round(initial[1],3), "\n initial z:", round(fun(initial[0], initial[1]),3) )
+
 
 for i in range(generations):
     new_pop     = np.empty((0,len(chromosome)))
@@ -63,6 +71,7 @@ for i in range(generations):
         new_pop_ov          = np.vstack((new_pop_ov, milenial_1_ov, milenial_2_ov))
         
         family += 1
+        
     #now my new pop is my initial one    
     all_solutions       = new_pop
     sorted_best         = np.array(sorted(new_pop_ov, key=lambda x:x[0])) #for plotting

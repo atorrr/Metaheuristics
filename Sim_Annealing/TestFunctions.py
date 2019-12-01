@@ -13,18 +13,26 @@ def sph(x,y):
     return(z)
 
 def McCor(x,y): #-1.5 < x < 4, -3 < y < 4
-    z = np.sin(x+y)+(x-y)**(2) -1.5*x+2.5*y+1
+    z = np.sin(x+y)+(x-y)**(2) -(1.5*x)+(2.5*y)+1
     return(z)
 
 def Beale(x,y):
-    z = (1.5-x+x*y)**2+(2.25-x+x*y**2)**2+(2.625-x+x*y**3)
+    z = (1.5-x+x*y)**2+(2.25-x+x*y**2)**2+(2.625-x+x*y**3)**2
     return(z)
    
 def GoldP(x,y):
     z = (1+(x+y+1)**(2)*(19-14*x+3*x**2-14*y+6*x*y+3*y**2))*(30+(2*x-3*y)**2 *
          (18-32*x+12*x**2+48*y-36*x*y+27*y**2))
     return(z)
+    
+def Schaffer2(x,y):
+    z = 0.5 + (((np.sin(x**2-y**2))**2)-0.5)/((1 +0.001*(x**2+y**2))**2)
+    return(z)
 
+def Levi(x,y):
+    z = (np.sin(3*np.pi*x))**2+((x-1)**2)*(1+(np.sin(3*np.pi*y))**2)+((y-1)**2)*(1+(np.sin(2*np.pi*y))**2)
+    return(z)
+    
 #%% Plotting test functions
 def PlotFun(f,fx=0,fy=0,fz=-1):
     print("Function", f.__name__)
@@ -48,4 +56,5 @@ def PlotFun(f,fx=0,fy=0,fz=-1):
     ax.legend(solution_found, ['Solution \n %s ' %coord], numpoints=1, loc='upper left')
     
 
-
+#%%
+    #print(Beale(-0.19,5.68))
